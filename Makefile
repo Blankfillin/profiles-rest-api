@@ -1,2 +1,8 @@
-run-server:
-	poetry run python -m core.manage runserver
+makemigrations:
+	docker compose run web python manage.py makemigrations
+
+migrate:
+	docker compose run web python manage.py migrate
+
+flush:
+	docker compose run web python manage.py flush
