@@ -1,6 +1,10 @@
-from django.core.management.utils import get_random_secret_key
+import sys
 
-from profiles_rest_api_core.general.utils.cryptography import generate_key_pair
+sys.path.append('../profiles-rest-api')
+
+from django.core.management.utils import get_random_secret_key  # ignore # noqa #E402
+
+from profiles_rest_api_core.general.utils.cryptography import generate_key_pair  # ignore # noqa #E402
 
 
 def generate_account():

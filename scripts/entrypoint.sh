@@ -10,4 +10,4 @@ $RUN_MANAGE_PY collectstatic --no-input
 echo 'Running migrations...'
 $RUN_MANAGE_PY migrate --no-input
 
-exec poetry run daphne profiles_rest_api_core.project.asgi:application -p 8000 -b 0.0.0.0
+exec poetry run python -m profiles_rest_api_core.manage runserver 0.0.0.0:8000

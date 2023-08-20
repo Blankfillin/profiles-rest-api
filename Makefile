@@ -26,6 +26,10 @@ migrate:
 flush:
 	poetry run python -m profiles_rest_api_core.manage flush
 
+.PHONY: shell
+shell:
+	poetry run python -m profiles_rest_api_core.manage shell
+
 .PHONY: superuser
 superuser:
 	poetry run python -m profiles_rest_api_core.manage createsuperuser
