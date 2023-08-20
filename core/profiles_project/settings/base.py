@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'core.profiles_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'D:\Documents\Coding\profiles-rest-api\db.sqlite3',
+        'NAME': 'D:/Documents/Coding/profiles-rest-api/db.sqlite3',
     }
 }
 
