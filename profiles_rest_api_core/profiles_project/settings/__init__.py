@@ -7,7 +7,7 @@ from split_settings.tools import include, optional
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 
 # Namespacing our own custom environment variables
-ENVVAR_SETTINGS_PREFIX = 'PROFILES_REST_API_'
+ENVVAR_SETTINGS_PREFIX = 'PROFILES_REST_API_SETTING'
 
 LOCAL_SETTINGS_PATH = os.getenv(f'{ENVVAR_SETTINGS_PREFIX}LOCAL_SETTINGS_PATH')
 

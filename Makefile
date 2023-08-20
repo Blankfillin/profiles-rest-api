@@ -4,8 +4,7 @@ install:
 
 .PHONY: install-pre-commit
 install-pre-commit:
-	poetry run pre-commit uninstall
-	poetry run pre-commit install
+	poetry run pre-commit uninstall; poetry run pre-commit install
 
 .PHONY: lint
 lint:
@@ -13,39 +12,38 @@ lint:
 
 .PHONY: runserver
 runserver:
-	poetry run python -m core.manage runserver
+	poetry run python -m profiles_rest_api_core.manage runserver
 
 .PHONY: migrations
 migrations:
-	poetry run python -m core.manage makemigrations
+	poetry run python -m profiles_rest_api_core.manage makemigrations
 
 .PHONY: migrate
 migrate:
-	poetry run python -m core.manage migrate
+	poetry run python -m profiles_rest_api_core.manage migrate
 
 .PHONY: flush
 flush:
-	poetry run python -m core.manage flush
+	poetry run python -m profiles_rest_api_core.manage flush
 
 .PHONY: superuser
 superuser:
-	poetry run python -m core.manage createsuperuser
+	poetry run python -m profiles_rest_api_core.manage createsuperuser
 
 .PHONY: update
 update: install migrate install-pre-commit ;
 
+.PHONY: db-up
+db-up:
+	test -f .env || touch .env
+	docker compose -f docker-compose.dev.yml up --force-recreate db --detach
 
+.PHONY: db-down
+db-down:
+	docker compose -f docker-compose.dev.yml down db
 
+.PHONY: up
+up: db-up runserver
 
-
-drunserver:
-	docker compose run web python manage.py runserver
-
-dmigrations:
-	docker compose run web python manage.py makemigrations
-
-dmigrate:
-	docker compose run web python manage.py migrate
-
-dflush:
-	docker compose run web python manage.py flush
+.PHONY: down
+down: db-down

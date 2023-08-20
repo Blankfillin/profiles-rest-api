@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'core.profiles_api.apps.ProfilesApiConfig',
+    'profiles_rest_api_core.profiles_api.apps.ProfilesApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -45,7 +45,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'core.profiles_project.urls'
+ROOT_URLCONF = 'profiles_rest_api_core.profiles_project.urls'
 
 TEMPLATES = [
     {
@@ -63,15 +63,27 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.profiles_project.wsgi.application'
+WSGI_APPLICATION = 'profiles_rest_api_core.profiles_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'D:/Documents/Coding/profiles-rest-api/db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'profiles_rest_api_core',
+        'USER': 'profiles_rest_api_core',
+        'PASSWORD': 'profiles_rest_api_core',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'ATOMIC_REQUESTS': True,
+        # TODO(dmu) MEDIUM: Unfortunately Daphne / ASGI / Django Channels do not properly reuse database connections
+        #                   and therefore we are getting resource (connection) leak that leads to the following:
+        #                   django.db.utils.OperationalError: FATAL:  sorry, too many clients already
+        #                   `'CONN_MAX_AGE': 0` is used as workaround. In case it notably affects performance
+        #                   implement a solution that either closes database connections on WebSocket client
+        #                   disconnect and implement connection pooling outside Django (BgBouncer or similar)
+        'CONN_MAX_AGE': 0,
     }
 }
 
