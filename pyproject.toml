@@ -5,7 +5,6 @@ description = ""
 authors = ["Chun Lu <chun.lu.dev@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "profiles_rest_api"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -18,7 +17,19 @@ pyyaml = "^6.0.1"
 
 
 [tool.poetry.group.dev.dependencies]
+pre-commit = "^3.0.2"
 flake8 = "^6.1.0"
+
+[tool.isort]
+multi_line_output = 5
+line_length = 119
+
+[tool.yapf]
+based_on_style = "google"
+align_closing_bracket_with_visual_indent = true
+coalesce_brackets = true
+column_limit = 119
+dedent_closing_brackets = true
 
 [build-system]
 requires = ["poetry-core"]
