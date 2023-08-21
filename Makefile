@@ -47,7 +47,7 @@ db-down:
 	docker compose -f docker-compose.dev.yml down db
 
 .PHONY: up
-up: db-up runserver
+up: db-up migrations migrate runserver ;
 
 .PHONY: down
 down: db-down
