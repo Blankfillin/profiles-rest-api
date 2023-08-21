@@ -171,6 +171,23 @@ files = [
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
+name = "codespell"
+version = "2.2.5"
+description = "Codespell"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "codespell-2.2.5-py3-none-any.whl", hash = "sha256:efa037f54b73c84f7bd14ce8e853d5f822cdd6386ef0ff32e957a3919435b9ec"},
+    {file = "codespell-2.2.5.tar.gz", hash = "sha256:6d9faddf6eedb692bf80c9a94ec13ab4f5fb585aabae5f3750727148d7b5be56"},
+]
+
+[package.extras]
+dev = ["Pygments", "build", "chardet", "pytest", "pytest-cov", "pytest-dependency", "ruff", "tomli"]
+hard-encoding-detection = ["chardet"]
+toml = ["tomli"]
+types = ["chardet (>=5.1.0)", "mypy", "pytest", "pytest-cov", "pytest-dependency"]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -758,4 +775,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "1f657608754ddf12a4090232f37899f21b5f76a260c8d824da5f37e58b3d7a6a"
+content-hash = "d5b848a002618698b719f9209f72329c0b250dab4c9d56e7b130f2ab2fb58fbf"

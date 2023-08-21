@@ -23,6 +23,7 @@ pre-commit = "^3.0.2"
 flake8 = "^6.1.0"
 colorlog = "^6.7.0"
 black = "^23.7.0"
+codespell = "^2.2.5"
 
 [tool.isort]
 profile = "black"
