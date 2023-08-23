@@ -22,7 +22,7 @@ LOGGING = {
             "django.request",
             "django.db.backends",
             "django.template",
-            "cooking_core",
+            "profiles_rest_api_core",
         )
     },
     "root": {
