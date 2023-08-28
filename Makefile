@@ -51,3 +51,7 @@ up: db-up migrations migrate runserver ;
 
 .PHONY: down
 down: db-down
+
+.PHONY: test
+test:
+	poetry run pytest -v -rs -n auto --show-capture=no

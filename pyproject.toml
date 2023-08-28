@@ -16,6 +16,10 @@ pyyaml = "^6.0.1"
 pydantic = "^2.2.1"
 pynacl = "^1.5.0"
 psycopg2-binary = "^2.9.7"
+pytest = "^7.4.0"
+pytest-xdist = "^3.3.1"
+pytest-django = "^4.5.2"
+model-bakery = "^1.15.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -27,6 +31,13 @@ codespell = "^2.2.5"
 
 [tool.isort]
 profile = "black"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "profiles_rest_api_core.profiles_project.settings"
+django_find_project = false
+python_files = "test_*.py"
+testpaths = ["profiles_rest_api_core"]
+filterwarnings = "ignore::DeprecationWarning:^(?!node\\.).*:"
 
 [build-system]
 requires = ["poetry-core"]
