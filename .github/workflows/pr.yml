@@ -24,7 +24,7 @@ jobs:
                 poetry-version: 1.4.2
 
             - name: Install Dependencies
-              run: make install & make install-pre-commit
+              run: make install && make install-pre-commit
 
             - name: Lint
               run: make lint
@@ -32,5 +32,5 @@ jobs:
             - name: Test
               run: make test
               env:
-                PROFILES_REST_API_SETTING_DATABASES: '{"default":{"HOST":"db"}}'
-                PROFILES_REST_API_SETTING_PATH: './profiles_rest_api_core/profiles_project/settings/templates/settings.github.py'
+                    PROFILES_REST_API_SETTING_DATABASES: '{"default":{"HOST":"db"}}'
+                    PROFILES_REST_API_SETTING_PATH: './profiles_rest_api_core/profiles_project/settings/templates/settings.github.py'
