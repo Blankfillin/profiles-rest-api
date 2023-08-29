@@ -32,9 +32,11 @@ jobs:
             - name: Lint
               run: make lint
 
+            - name: Set PYTHONPATH
+              run: echo "PYTHONPATH=$PYTHONPATH" >> $GITHUB_ENV
+
             - name: Test
               run: make test
               env:
-                PYTHONPATH: '/opt/project'
                 PROFILES_REST_API_SETTING_DATABASES: '{"default":{"HOST":"db"}}'
                 PROFILES_REST_API_SETTING_PATH: './profiles_rest_api_core/profiles_project/settings/templates/settings.github.py'
